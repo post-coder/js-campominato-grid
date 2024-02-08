@@ -14,12 +14,19 @@ sin quando tutto è leggibile con facilità
 
 const playButton = document.querySelector("#play-button");
 
+// alla pressione del pulsante play, lanciamo la funzione play()
+// notare come qui il nome della funzione non abbia le tonde alla fine
+// perchè in js, OGNI VOLTA che viene letto del codice con delle tonde
+// viene SUBITO eseguita la sua istruzione
+// provate infatti ad inserire le tonde dopo play e vedrete
+// che il gioco si avvia immediatamente senza bisogno di premere il pulsante
 playButton.addEventListener("click", play);
 
 
 
 // funzione che gestisce tutta la logica del gioco
 function play() {
+    console.log("play")
 
     // mi salvo la griglia in una variabile
     const gridElement = document.querySelector("#grid");
@@ -70,8 +77,6 @@ function play() {
         newElement.addEventListener("click", clickManager);
 
     }
-
-
 
 }
 
