@@ -90,6 +90,6 @@ function clickManager() {
     console.log(this.innerText);
 
     // // aggiungo la classe all'elemento cliccato
-    this.classList.toggle("clicked");
+    this.classList.add("clicked");
 
 }
