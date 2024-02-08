@@ -14,7 +14,12 @@ sin quando tutto è leggibile con facilità
 
 const playButton = document.querySelector("#play-button");
 
-playButton.addEventListener("click", function() {
+playButton.addEventListener("click", play);
+
+
+
+// funzione che gestisce tutta la logica del gioco
+function play() {
 
     // mi salvo la griglia in una variabile
     const gridElement = document.querySelector("#grid");
@@ -29,17 +34,11 @@ playButton.addEventListener("click", function() {
 
     // cambio il numero di celle da creare in base alla difficoltà
     if(selectElement.value == "easy") {
-
         cellNumber = 100;
-
     } else if (selectElement.value == "medium") {
-
         cellNumber = 81;
-
     } else {
-
         cellNumber = 49;
-
     }
 
     // imposto la classe della griglia in base alla difficoltà
@@ -68,18 +67,24 @@ playButton.addEventListener("click", function() {
 
 
         // aggiungo un event listener del click ad ogni cella
-        newElement.addEventListener("click", function() {
-            // emetto un messaggio in console con il numero della cella cliccata
-            console.log(this.innerText);
-
-            // aggiungo la classe all'elemento cliccato
-            this.classList.toggle("clicked");
-
-        });
+        newElement.addEventListener("click", clickManager);
 
     }
 
 
 
-});
+}
 
+
+
+// funzione che gestisce il click di una singola cella
+function clickManager() {
+    // console.log("this dentro la funzione separata", this)
+
+    // // emetto un messaggio in console con il numero della cella cliccata
+    console.log(this.innerText);
+
+    // // aggiungo la classe all'elemento cliccato
+    this.classList.toggle("clicked");
+
+}
